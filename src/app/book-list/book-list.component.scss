@@ -1,3 +1,20 @@
-ul {
-  list-style-type: none;
+.book,
+.editor {
+  font-size: 1.125em;
+  margin-bottom: 2em;
+}
+
+.editor{
+  border: 1px solid darkgray;
+  padding: .5em;
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+
+.book__title {
+  font-weight: 600;
+}
+
+.book__attr-desc {
+  color: #999;
 }
