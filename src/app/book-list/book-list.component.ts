@@ -21,11 +21,13 @@ interface Author {
 })
 export class BookListComponent implements OnInit {
   editing: Boolean;
+  adding: Boolean;
   editedBookId?: number;
   books: Book[];
 
   constructor() {
     this.editing = false;
+    this.adding = false;
     // this.editedBookId = 0;
 
     this.books = [{
@@ -64,6 +66,11 @@ export class BookListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleNew() {
+    this.adding = true;
+    this.editing = true;
+  }
+
   handleEditing(id: number) {
     this.editedBookId = id;
     this.editing = true;
@@ -71,11 +78,13 @@ export class BookListComponent implements OnInit {
 
   handleCancel() {
     this.editing = false;
+    this.adding = false;
   }
 
   handleUpdate(event: Book) {
-    console.log(event);
+    console.log(event); // TO DO: update book
     this.editing = false;
+    this.adding = false;
   }
 
 }

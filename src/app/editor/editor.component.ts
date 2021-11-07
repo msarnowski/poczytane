@@ -11,13 +11,18 @@ export class EditorComponent implements OnInit {
   @Input()
   bookToEdit?: Book;
 
+  @Input()
+  adding: Boolean;
+
   @Output()
   save: EventEmitter<Book> = new EventEmitter<Book>();
 
   @Output()
   cancel: EventEmitter<null> = new EventEmitter<null>();
 
-  constructor() { }
+  constructor() {
+    this.adding = false;
+  }
 
   ngOnInit(): void {
   }
@@ -32,6 +37,7 @@ export class EditorComponent implements OnInit {
   }
 
   handleCancel() {
+    this.adding = false;
     this.cancel.emit();
   }
 

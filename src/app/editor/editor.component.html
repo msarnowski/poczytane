@@ -1,4 +1,4 @@
-<p>book: &bdquo;{{ bookToEdit?.title }}&rdquo;</p>
+<p *ngIf="!adding">&bdquo;{{ bookToEdit?.title }}&rdquo;</p>
 
 <form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
   <label>title</label>
@@ -16,12 +16,15 @@
   <label>note</label>
   <input class="editor__input-text" type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>
 
+  <p class="validation-msg" *ngIf="form.invalid && form.touched">Fill in required fields</p>
+
   <button type="submit">Submit</button>
 </form>
 
-<p>form.value: {{ form.value | json }}</p>
-<p>form.valid: {{ form.valid }}</p>
-
-<!-- <button (click)="handleSave(note.value)">Save changes</button> -->
+<pre>form.value: {{ form.value | json }}</pre>
+<pre>form.valid: {{ form.valid }}</pre>
+<pre>form.touched: {{ form.touched }}</pre>
+<pre>form.dirty: {{ form.dirty }}</pre>
+<pre>form.status: {{ form.status }}</pre>
 
 <button (click)="handleCancel()">Cancel</button>

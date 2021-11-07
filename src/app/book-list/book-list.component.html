@@ -1,5 +1,9 @@
+<div class="new" *ngIf="!editing">
+  <button (click)="handleNew()">Add book</button> <!-- TO DO: next id -->
+</div>
+
 <div class="editor" *ngIf="editing">
-  <app-editor [bookToEdit]="books[editedBookId!]" (save)="handleUpdate($event)" (cancel)="handleCancel()"></app-editor>
+  <app-editor [bookToEdit]="books[editedBookId!]" [adding]="adding" (save)="handleUpdate($event)" (cancel)="handleCancel()"></app-editor>
 </div>
 
 <p>editing: {{ editing }}</p>
@@ -17,5 +21,5 @@
 
   <p *ngIf="book.note"><span class="book__attr-desc">notatka:</span> {{ book.note }}</p>
 
-  <button *ngIf="!editing" class="book__edit-button" (click)="handleEditing(book.id)">Edit note</button>
+  <button *ngIf="!editing" class="book__edit-button" (click)="handleEditing(book.id)">Edit</button>
 </div>
