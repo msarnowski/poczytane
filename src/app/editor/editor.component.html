@@ -2,29 +2,34 @@
 
 <form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
   <label>title</label>
-  <input class="editor__input-text" type="text" name="title" [ngModel]="bookToEdit?.title" #title required><br>
+  <input type="text" name="title" [ngModel]="bookToEdit?.title" #title required><br>
 
   <label>author</label>
-  <input class="editor__input-text" type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName required placeholder="first name">
-  <input class="editor__input-text" type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName required placeholder="last name"><br>
+  <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName required placeholder="first name">
+  <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName required placeholder="last name"><br>
 
-  <div *ngFor="let quote of bookToEdit?.quotes;">
-    <label>quote: {{ quote }}</label>
-    <!-- <input class="editor__input-text" type="text" name="quote[]" [ngModel]="quote"><br> -->
-  </div>
+  <!-- <div *ngFor="let quote of bookToEdit?.quotes;"> -->
+    <!-- <label>quote: {{ quote }}</label> -->
+    <!-- <input type="text" name="quote[]" [ngModel]="quote"><br> -->
+  <!-- </div> -->
+
+  <app-quotes-editor *ngIf="quotes" [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor><br>
+
+  <label>quotes (hidden field)</label>
+  <input type="text" name="quoteList" [ngModel]="bookToEdit?.quotes" #quotesHiddenField><br>
 
   <label>note</label>
-  <input class="editor__input-text" type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>
+  <input type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>
 
   <p class="validation-msg" *ngIf="form.invalid && form.touched">Fill in required fields</p>
 
   <button type="submit">Submit</button>
 </form>
 
-<pre>form.value: {{ form.value | json }}</pre>
+<!-- <pre>form.value: {{ form.value | json }}</pre>
 <pre>form.valid: {{ form.valid }}</pre>
 <pre>form.touched: {{ form.touched }}</pre>
 <pre>form.dirty: {{ form.dirty }}</pre>
-<pre>form.status: {{ form.status }}</pre>
+<pre>form.status: {{ form.status }}</pre> -->
 
 <button (click)="handleCancel()">Cancel</button>

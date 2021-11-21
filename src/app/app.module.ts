@@ -7,12 +7,14 @@ import { BookListComponent } from './book-list/book-list.component';
 import { EditorComponent } from './editor/editor.component';
 
 import { FormsModule } from '@angular/forms';
+import { QuotesEditorComponent } from './quotes-editor/quotes-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    EditorComponent
+    EditorComponent,
+    QuotesEditorComponent
   ],
   imports: [
     BrowserModule,
