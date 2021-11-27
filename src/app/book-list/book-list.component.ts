@@ -49,7 +49,7 @@ export class BookListComponent implements OnInit {
         lastName: "Rokita"
       },
       quotes: ["hue hue hue", "buch buch buch"],
-      note: "xxx xxx xxx yyy yyy yyy zzz zzz zzz"
+      note: "xxx yyy zzz"
     },{
       id: 2,
       date: "2021-10-11T18:24:00.000Z",
@@ -63,8 +63,7 @@ export class BookListComponent implements OnInit {
     }];
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleNew() {
     this.adding = true;
@@ -81,8 +80,19 @@ export class BookListComponent implements OnInit {
     this.adding = false;
   }
 
-  handleUpdate(event: Book) {
-    console.log(event); // TO DO: update book
+  handleSave(event: Book) {
+    // console.log(event); 
+    if (this.adding) {
+      this.books.push(event);
+    } else {
+      this.books = this.books.map((book: Book) => {
+        if (event.id === book.id) {
+          book = Object.assign({}, book, event);
+        }
+        return book;
+      });
+    }
+    
     this.editing = false;
     this.adding = false;
   }

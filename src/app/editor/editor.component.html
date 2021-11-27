@@ -13,10 +13,10 @@
     <!-- <input type="text" name="quote[]" [ngModel]="quote"><br> -->
   <!-- </div> -->
 
-  <app-quotes-editor *ngIf="quotes" [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor><br>
+  <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor><br>
 
   <label>quotes (hidden field)</label>
-  <input type="text" name="quoteList" [ngModel]="bookToEdit?.quotes" #quotesHiddenField><br>
+  <input type="text" name="quoteList" [ngModel]="bookToEdit?.quotes" #quotesHiddenField><br> <!-- JSON encoded string ? -->
 
   <label>note</label>
   <input type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>

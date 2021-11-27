@@ -3,7 +3,7 @@
 </div>
 
 <div class="editor" *ngIf="editing">
-  <app-editor [bookToEdit]="books[editedBookId!]" [adding]="adding" (save)="handleUpdate($event)" (cancel)="handleCancel()"></app-editor>
+  <app-editor [bookToEdit]="books[editedBookId!]" [adding]="adding" (save)="handleSave($event)" (cancel)="handleCancel()"></app-editor>
 </div>
 
 <p>editing: {{ editing }}</p>

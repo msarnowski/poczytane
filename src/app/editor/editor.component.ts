@@ -58,7 +58,7 @@ export class EditorComponent implements OnInit {
             firstName: form.firstName,
             lastName: form.lastName
           },
-          quotes: form.quoteList,
+          quotes: form.quoteList.split(","),
           note: form.note
         }
         this.save.emit(this.bookToEdit);
@@ -66,6 +66,8 @@ export class EditorComponent implements OnInit {
         this.bookToEdit!.title = form.title;
         this.bookToEdit!.author.firstName = form.firstName;
         this.bookToEdit!.author.lastName = form.lastName;
+        this.bookToEdit!.quotes = form.quoteList.split(","); // przyszłość JSON encoded string ?
+        this.bookToEdit!.note = form.note;
         this.save.emit(this.bookToEdit!);
       }
     }

@@ -1,11 +1,11 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, OnChanges, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-quotes-editor',
   templateUrl: './quotes-editor.component.html',
   styleUrls: ['./quotes-editor.component.scss']
 })
-export class QuotesEditorComponent implements OnInit {
+export class QuotesEditorComponent implements OnInit, OnChanges {
 
   @Input()
   quotesToEdit?: string[];
@@ -19,9 +19,21 @@ export class QuotesEditorComponent implements OnInit {
     // console.log(`(quotes editor) quotes: ${this.quotesToEdit}`); 
   }
 
+  ngOnChanges(changes: any): void {
+    if (this.quotesToEdit) {
+      this.quotesToEdit = Array.from(changes.quotesToEdit.currentValue);
+      
+      // console.log(Array.from(changes.quotesToEdit.currentValue));
+    }
+  }
+
   addQuote() {
-    this.quotesToEdit!.push('');
-    console.log(`quotesToEdit: ${this.quotesToEdit}`);
+    if (this.quotesToEdit) {
+      this.quotesToEdit.push('');
+    } else {
+      this.quotesToEdit = [''];
+    }
+    // console.log(`quotesToEdit: ${this.quotesToEdit}`);
   }
 
   updateQuote(event: any, i: number) {
