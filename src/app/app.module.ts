@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { EditorComponent } from './editor/editor.component';
 
 import { FormsModule } from '@angular/forms';
 import { QuotesEditorComponent } from './quotes-editor/quotes-editor.component';
+
+import { BookListService } from './book-list.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +22,10 @@ import { QuotesEditorComponent } from './quotes-editor/quotes-editor.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BookListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

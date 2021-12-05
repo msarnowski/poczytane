@@ -16,7 +16,7 @@
   <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor><br>
 
   <label>quotes (hidden field)</label>
-  <input type="text" name="quoteList" [ngModel]="bookToEdit?.quotes" #quotesHiddenField><br> <!-- JSON encoded string ? -->
+  <input type="text" name="quoteList" tabindex="-1" [ngModel]="bookToEdit?.quotes" #quotesHiddenField><br> <!-- JSON encoded string ? -->
 
   <label>note</label>
   <input type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>

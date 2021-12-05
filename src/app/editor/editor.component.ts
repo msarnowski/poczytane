@@ -66,7 +66,7 @@ export class EditorComponent implements OnInit {
         this.bookToEdit!.title = form.title;
         this.bookToEdit!.author.firstName = form.firstName;
         this.bookToEdit!.author.lastName = form.lastName;
-        this.bookToEdit!.quotes = form.quoteList.split(","); // przyszłość JSON encoded string ?
+        this.bookToEdit!.quotes = form.quoteList.split(","); // null is not an object, usunąć puste cytaty, błąd wyskakuje jeśli nie było edycji (inicjalizacja form?) przyszłość JSON encoded string ?
         this.bookToEdit!.note = form.note;
         this.save.emit(this.bookToEdit!);
       }
