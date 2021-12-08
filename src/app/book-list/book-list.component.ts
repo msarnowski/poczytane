@@ -55,18 +55,23 @@ export class BookListComponent implements OnInit {
   }
 
   handleSave(event: Book) {
-    // console.log(event); 
     if (this.adding) {
-      this.books?.push(event);
+      this.bookListService.addBook(event).subscribe((data: Book) => {
+        this.books?.push(event);
+        this.editing = false;
+        this.adding = false;
+      });
     } else {
-      this.books = this.books?.map((book: Book) => {
-        if (event.id === book.id) {
-          book = Object.assign({}, book, event);
-        }
-        return book;
+      this.bookListService.updateBook(event).subscribe((data: Book) => {
+        this.books = this.books?.map((book: Book) => {
+          if (event.id === book.id) {
+            book = Object.assign({}, book, event);
+          }
+          return book;
+        });
       });
     }
-    
+
     this.editing = false;
     this.adding = false;
   }

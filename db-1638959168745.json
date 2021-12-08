@@ -1,0 +1,42 @@
+{
+  "books": [
+    {
+      "id": 0,
+      "date": "2021-10-09T18:24:00.000Z",
+      "title": "Oskarżona Wiera Gran",
+      "author": {
+        "firstName": "Agata",
+        "lastName": "Tuszyńska"
+      },
+      "quotes": [
+        "hue hue hue",
+        "buch buch buch"
+      ],
+      "note": "ble ble ble"
+    },
+    {
+      "id": 1,
+      "date": "2021-10-10T18:24:00.000Z",
+      "title": "Kajś",
+      "author": {
+        "firstName": "Zbigniew",
+        "lastName": "Rokita"
+      },
+      "quotes": null,
+      "note": "ech ech ech"
+    },
+    {
+      "id": 2,
+      "date": "2021-10-11T18:24:00.000Z",
+      "title": "Fantom bólu",
+      "author": {
+        "firstName": "Hanna",
+        "lastName": "Krall"
+      },
+      "quotes": [
+        "wii wii wii"
+      ],
+      "note": "eue eue eue"
+    }
+  ]
+}
