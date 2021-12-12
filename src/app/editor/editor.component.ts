@@ -14,6 +14,9 @@ export class EditorComponent implements OnInit {
   @Input()
   adding: Boolean;
 
+  @Input()
+  nextId?: number;
+
   @Output()
   save: EventEmitter<Book> = new EventEmitter<Book>();
 
@@ -22,51 +25,69 @@ export class EditorComponent implements OnInit {
 
   @ViewChild('quotesHiddenField') QuotesHiddenField!: ElementRef;
   
-  quotes?: string[];
+  quotes: string[];
+  quotesEdited?: string[];
+  quotesString?: string;
   
   constructor() {
     this.adding = false;
+    this.quotes = [''];
   }
 
   ngOnInit(): void {
     if (this.adding) {
       this.bookToEdit = undefined;
-      this.quotes = [''];
-    } else {
+    } else { // editing
       if (this.bookToEdit?.quotes) {
         this.quotes = this.bookToEdit.quotes;
       }
     }
-    console.log(`(book editor) quotes: ${this.quotes}`);
+    this.quotesString = JSON.stringify(this.quotes);
+    // console.log(`(book editor) quotes: ${this.quotes}`);
   }
 
   handleQuotesUpdate(event: string[]) {
-    // console.log(`(book editor) quotes updated: ${event}`);
+    this.quotesEdited = event;
+    console.log(`(book editor) quotesEdited updated: ${this.quotesEdited}`);
     // console.log(`QuotesHiddenField value: ${this.QuotesHiddenField.nativeElement.value}`);
-    this.QuotesHiddenField.nativeElement.value = event;
-    this.QuotesHiddenField.nativeElement.dispatchEvent(new Event("input"));
+    // console.log(`${event}`);
+    // console.log(JSON.stringify(event));
+    // this.QuotesHiddenField.nativeElement.value = JSON.stringify(event);
+    // this.QuotesHiddenField.nativeElement.dispatchEvent(new Event("input"));
+    // console.log(`QuotesHiddenField updated by event: ${event}`);
+
+    // if (this.bookToEdit) {
+      // this.bookToEdit.quotes = event;
+      // console.log(`bookToEdit.quotes updated by event: ${event}`);
+      
+      // console.log(this.QuotesHiddenField);
+    // } else {
+      // console.log('no book to edit');
+    // }
   }
 
   handleSubmit(form: any, valid: boolean | null) {
     if (valid) {
-      if (this.adding) {
+      if (this.adding && this.nextId) {
         this.bookToEdit = {
-          id: 999,
+          id: this.nextId,
           date: 'current date',
           title: form.title,
           author: {
             firstName: form.firstName,
             lastName: form.lastName
           },
-          quotes: form.quoteList.split(","),
+          quotes: this.quotesEdited,
           note: form.note
         }
         this.save.emit(this.bookToEdit);
       } else {
+        // console.log(form.quoteList);
         this.bookToEdit!.title = form.title;
         this.bookToEdit!.author.firstName = form.firstName;
         this.bookToEdit!.author.lastName = form.lastName;
-        this.bookToEdit!.quotes = form.quoteList.split(","); // null is not an object, usunąć puste cytaty, błąd wyskakuje jeśli nie było edycji (inicjalizacja form?) przyszłość JSON encoded string ?
+        // this.bookToEdit!.quotes = JSON.parse(form.quoteList); // null is not an object, usunąć puste cytaty, błąd wyskakuje jeśli nie było edycji (inicjalizacja form?)
+        this.bookToEdit!.quotes = this.quotesEdited;
         this.bookToEdit!.note = form.note;
         this.save.emit(this.bookToEdit!);
       }

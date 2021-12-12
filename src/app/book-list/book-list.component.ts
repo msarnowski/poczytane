@@ -26,20 +26,29 @@ export class BookListComponent implements OnInit {
   adding: Boolean;
   bookToEdit?: Book;
   books?: Book[];
+  nextId: number;
 
   constructor(private bookListService: BookListService) {
     this.editing = false;
     this.adding = false;
+    this.nextId = -1;
     // this.editedBookId = 0;
   }
 
   ngOnInit(): void {
-    this.bookListService.getBooks().subscribe((data: Book[]) => this.books = data);
+    this.bookListService.getBooks().subscribe((data: Book[]) => {
+      this.books = data;
+    });
   }
 
   handleNew() {
-    this.adding = true;
-    this.editing = true;
+    if (this.books) {
+      this.nextId = Math.max(...this.books.map(b => b.id)) + 1;
+      console.log(`nextId: ${this.nextId}`);
+
+      this.adding = true;
+      this.editing = true;
+    }
   }
 
   handleEditing(id: number) {

@@ -2,7 +2,7 @@
   <!-- <div>quote {{ quotesToEdit?.indexOf(quote) }}: {{ quote }}</div> -->
   <div>quote {{ i }}: {{ quote }}</div>
   <label>quote</label>
-  <input type="text" (input)="updateQuote($event, i)" [value]="quote"><br>
+  <input type="text" (input)="updateQuote($event, i)" [value]="quote"><button (click)="removeQuote(i)" type="button">X</button><br>
 </div>
 
 <button (click)="addQuote()" type="button">Add quote</button>

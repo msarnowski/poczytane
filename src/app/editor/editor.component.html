@@ -15,8 +15,10 @@
 
   <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor><br>
 
-  <label>quotes (hidden field)</label>
-  <input type="text" name="quoteList" tabindex="-1" [ngModel]="bookToEdit?.quotes" #quotesHiddenField><br> <!-- JSON encoded string ? -->
+  <!-- <p>quotesEdited: {{ quotesEdited }}</p> -->
+
+  <!-- <label>quotes (hidden field)</label>
+  <input type="text" name="quoteList" [ngModel]="quotesString" tabindex="-1" #quotesHiddenField><br> tu nie ma walidacji, więc to pole jest niepotrzebne? -->
 
   <label>note</label>
   <input type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>
