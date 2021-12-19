@@ -68,10 +68,14 @@ export class EditorComponent implements OnInit {
 
   handleSubmit(form: any, valid: boolean | null) {
     if (valid) {
+      // console.log(this.quotesEdited);
+      this.quotesEdited = this.quotesEdited?.filter(el => el != '');
+      // console.log(this.quotesEdited);
+
       if (this.adding && this.nextId) {
         this.bookToEdit = {
           id: this.nextId,
-          date: 'current date',
+          date: Date.now(),
           title: form.title,
           author: {
             firstName: form.firstName,

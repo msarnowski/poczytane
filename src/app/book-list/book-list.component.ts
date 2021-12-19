@@ -4,7 +4,7 @@ import { BookListService } from '../book-list.service';
 
 export interface Book {
   id: number,
-  date: string,
+  date: number,
   title: string,
   author: Author,
   quotes?: string[],
@@ -83,6 +83,13 @@ export class BookListComponent implements OnInit {
 
     this.editing = false;
     this.adding = false;
+  }
+
+  getReadableDate(date: number): string {
+    const dateObject = new Date(date);
+    let dateString = dateObject.toLocaleString();
+    dateString = dateString.substring(0, dateString.length - 3);
+    return dateString;
   }
 
 }

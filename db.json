@@ -2,7 +2,7 @@
   "books": [
     {
       "id": 0,
-      "date": "2021-10-09T18:24:00.000Z",
+      "date": 1633796640000,
       "title": "Oskarżona Wiera Gran",
       "author": {
         "firstName": "Agata",
@@ -16,18 +16,21 @@
     },
     {
       "id": 1,
-      "date": "2021-10-10T18:24:00.000Z",
+      "date": 1633883040000,
       "title": "Kajś",
       "author": {
         "firstName": "Zbigniew",
         "lastName": "Rokita"
       },
-      "quotes": null,
+      "quotes": [
+        "a",
+        "e"
+      ],
       "note": "ech ech ech"
     },
     {
       "id": 2,
-      "date": "2021-10-11T18:24:00.000Z",
+      "date": 1633969440000,
       "title": "Fantom bólu",
       "author": {
         "firstName": "Hanna",
@@ -41,7 +44,7 @@
     },
     {
       "id": 3,
-      "date": "current date",
+      "date": 1638379440000,
       "title": "a",
       "author": {
         "firstName": "a",
@@ -51,6 +54,30 @@
         "s"
       ],
       "note": "z"
+    },
+    {
+      "id": 4,
+      "date": 1638379440000,
+      "title": "aa",
+      "author": {
+        "firstName": "aa",
+        "lastName": "aa"
+      },
+      "quotes": [
+        "a"
+      ],
+      "note": "aa"
+    },
+    {
+      "id": 5,
+      "date": 1639682920832,
+      "title": "z",
+      "author": {
+        "firstName": "z",
+        "lastName": "z"
+      },
+      "quotes": [],
+      "note": null
     }
   ]
 }
