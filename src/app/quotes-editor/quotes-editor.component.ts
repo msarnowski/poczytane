@@ -16,7 +16,7 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit(): void { 
-    console.log(`(quotes editor) quotes: ${this.quotesToEdit}`); 
+    // console.log(`(quotes editor) quotes: ${this.quotesToEdit}`); 
   }
 
   ngAfterViewInit(): void {
@@ -29,7 +29,7 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
     if (this.quotesToEdit) {
       this.quotesToEdit = Array.from(changes.quotesToEdit.currentValue);
       
-      console.log(`ngOnChanges this.quotesToEdit ${this.quotesToEdit}`);
+      // console.log(`ngOnChanges this.quotesToEdit ${this.quotesToEdit}`);
       // console.log(Array.from(changes.quotesToEdit.currentValue));
     }
   }

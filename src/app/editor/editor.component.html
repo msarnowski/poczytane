@@ -2,20 +2,27 @@
 
 <form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
   <label>title</label>
-  <input type="text" name="title" [ngModel]="bookToEdit?.title" #title required><br>
+  <input type="text" name="title" [ngModel]="bookToEdit?.title" #title="ngModel" required autofocus><br>
+
+  <p class="validation-msg" *ngIf="title.invalid && title.touched">Title required</p>
 
   <label>author</label>
-  <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName required placeholder="first name">
-  <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName required placeholder="last name"><br>
+  <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" required placeholder="first name">
+  <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" required placeholder="last name"><br>
 
-  <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor><br>
+  <span class="validation-msg" *ngIf="firstName.invalid && firstName.touched">First name required </span><span class="validation-msg" *ngIf="lastName.invalid && lastName.touched">Last name required</span>
+
+  <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor>
 
   <label>note</label>
   <input type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>
 
-  <p class="validation-msg" *ngIf="form.invalid && form.touched">Fill in required fields</p>
+  <p class="validation-msg" *ngIf="form.invalid && form.submitted">Fill in required fields</p>
 
   <button type="submit">Submit</button>
 </form>
+
+form.submitted: {{ form.submitted }}<br>
+form.status: {{ form.status }}<br>
 
 <button (click)="handleCancel()">Cancel</button>

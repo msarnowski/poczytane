@@ -48,7 +48,7 @@ export class EditorComponent implements OnInit {
 
   handleQuotesUpdate(event: string[]) {
     this.quotesEdited = event;
-    console.log(`(book editor) quotesEdited updated: ${this.quotesEdited}`);
+    // console.log(`(book editor) quotesEdited updated: ${this.quotesEdited}`);
   }
 
   handleSubmit(form: any, valid: boolean | null) {

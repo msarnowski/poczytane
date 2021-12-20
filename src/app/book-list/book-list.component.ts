@@ -43,7 +43,7 @@ export class BookListComponent implements OnInit {
   handleNew() {
     if (this.books) {
       this.nextId = Math.max(...this.books.map(b => b.id)) + 1;
-      console.log(`nextId: ${this.nextId}`);
+      // console.log(`nextId: ${this.nextId}`);
 
       this.adding = true;
       this.editing = true;
