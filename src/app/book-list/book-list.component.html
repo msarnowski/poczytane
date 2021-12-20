@@ -22,4 +22,6 @@
   <p *ngIf="book.note"><span class="book__attr-desc">notatka:</span> {{ book.note }}</p>
 
   <button *ngIf="!editing" class="book__edit-button" (click)="handleEditing(book.id)">Edit</button>
+
+  <button *ngIf="!editing" class="book__delete-button" (click)="deleteBook(book.id)">Delete</button>
 </div>

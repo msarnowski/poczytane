@@ -32,7 +32,6 @@ export class BookListComponent implements OnInit {
     this.editing = false;
     this.adding = false;
     this.nextId = -1;
-    // this.editedBookId = 0;
   }
 
   ngOnInit(): void {
@@ -92,4 +91,9 @@ export class BookListComponent implements OnInit {
     return dateString;
   }
 
+  deleteBook(bookId: number) {
+    this.bookListService.deleteBook(bookId).subscribe( () => {
+      this.books = this.books?.filter(book => book.id != bookId);
+    });
+  }
 }

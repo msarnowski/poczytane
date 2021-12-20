@@ -49,21 +49,6 @@ export class EditorComponent implements OnInit {
   handleQuotesUpdate(event: string[]) {
     this.quotesEdited = event;
     console.log(`(book editor) quotesEdited updated: ${this.quotesEdited}`);
-    // console.log(`QuotesHiddenField value: ${this.QuotesHiddenField.nativeElement.value}`);
-    // console.log(`${event}`);
-    // console.log(JSON.stringify(event));
-    // this.QuotesHiddenField.nativeElement.value = JSON.stringify(event);
-    // this.QuotesHiddenField.nativeElement.dispatchEvent(new Event("input"));
-    // console.log(`QuotesHiddenField updated by event: ${event}`);
-
-    // if (this.bookToEdit) {
-      // this.bookToEdit.quotes = event;
-      // console.log(`bookToEdit.quotes updated by event: ${event}`);
-      
-      // console.log(this.QuotesHiddenField);
-    // } else {
-      // console.log('no book to edit');
-    // }
   }
 
   handleSubmit(form: any, valid: boolean | null) {
@@ -90,7 +75,6 @@ export class EditorComponent implements OnInit {
         this.bookToEdit!.title = form.title;
         this.bookToEdit!.author.firstName = form.firstName;
         this.bookToEdit!.author.lastName = form.lastName;
-        // this.bookToEdit!.quotes = JSON.parse(form.quoteList); // null is not an object, usunąć puste cytaty, błąd wyskakuje jeśli nie było edycji (inicjalizacja form?)
         this.bookToEdit!.quotes = this.quotesEdited;
         this.bookToEdit!.note = form.note;
         this.save.emit(this.bookToEdit!);

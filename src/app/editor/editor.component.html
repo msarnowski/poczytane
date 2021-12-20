@@ -8,17 +8,7 @@
   <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName required placeholder="first name">
   <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName required placeholder="last name"><br>
 
-  <!-- <div *ngFor="let quote of bookToEdit?.quotes;"> -->
-    <!-- <label>quote: {{ quote }}</label> -->
-    <!-- <input type="text" name="quote[]" [ngModel]="quote"><br> -->
-  <!-- </div> -->
-
   <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor><br>
-
-  <!-- <p>quotesEdited: {{ quotesEdited }}</p> -->
-
-  <!-- <label>quotes (hidden field)</label>
-  <input type="text" name="quoteList" [ngModel]="quotesString" tabindex="-1" #quotesHiddenField><br> tu nie ma walidacji, więc to pole jest niepotrzebne? -->
 
   <label>note</label>
   <input type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>
@@ -27,11 +17,5 @@
 
   <button type="submit">Submit</button>
 </form>
-
-<!-- <pre>form.value: {{ form.value | json }}</pre>
-<pre>form.valid: {{ form.valid }}</pre>
-<pre>form.touched: {{ form.touched }}</pre>
-<pre>form.dirty: {{ form.dirty }}</pre>
-<pre>form.status: {{ form.status }}</pre> -->
 
 <button (click)="handleCancel()">Cancel</button>

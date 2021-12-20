@@ -67,17 +67,6 @@
         "a"
       ],
       "note": "aa"
-    },
-    {
-      "id": 5,
-      "date": 1639682920832,
-      "title": "z",
-      "author": {
-        "firstName": "z",
-        "lastName": "z"
-      },
-      "quotes": [],
-      "note": null
     }
   ]
 }

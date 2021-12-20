@@ -26,4 +26,9 @@ export class BookListService {
     return this.http.post<Book>(BOOK_API, book)
       .pipe(map(response => response));
   }
+
+  deleteBook(id: number): Observable<unknown> {
+    return this.http.delete(`${BOOK_API}/${id}`)
+      .pipe(map(response => response));
+  }
 }
