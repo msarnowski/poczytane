@@ -1,6 +1,6 @@
 <label>quotes</label>
 <div *ngFor="let quote of quotesToEdit; let i = index; trackBy:trackByFn">
-  <input type="text" (input)="updateQuote($event, i)" [value]="quote"><button (click)="removeQuote(i)" type="button">Remove quote</button><br>
+  <input type="text" class="quotes-editor__input" (input)="updateQuote($event, i)" [value]="quote"><button (click)="removeQuote(i)" type="button">Remove quote</button><br>
 </div>
 
 <button (click)="addQuote()" type="button">Add quote</button>

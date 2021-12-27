@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, OnChanges, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, OnChanges, EventEmitter, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-quotes-editor',
@@ -13,7 +13,7 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
   @Output()
   update: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-  constructor() {}
+  constructor(private cDR: ChangeDetectorRef) {}
 
   ngOnInit(): void { 
     // console.log(`(quotes editor) quotes: ${this.quotesToEdit}`); 
@@ -31,16 +31,27 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
       
       // console.log(`ngOnChanges this.quotesToEdit ${this.quotesToEdit}`);
       // console.log(Array.from(changes.quotesToEdit.currentValue));
+      
+      // console.log('ngOnchanges');
     }
   }
 
   addQuote() {
+    this.cDR.detach();
+
     if (this.quotesToEdit) {
       this.quotesToEdit.push('');
     } else {
       this.quotesToEdit = [''];
     }
-    // console.log(`quotesToEdit: ${this.quotesToEdit}`);
+
+    this.cDR.detectChanges();
+
+    let inputs = document.getElementsByClassName('quotes-editor__input');
+    let lastInput = inputs[inputs.length - 1];
+    (lastInput as HTMLElement)?.focus();
+
+    this.cDR.reattach();
   }
 
   updateQuote(event: any, i: number) {
