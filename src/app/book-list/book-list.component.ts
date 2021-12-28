@@ -37,6 +37,7 @@ export class BookListComponent implements OnInit {
   ngOnInit(): void {
     this.bookListService.getBooks().subscribe((data: Book[]) => {
       this.books = data;
+      console.log(this.books);
     });
   }
 
@@ -68,6 +69,7 @@ export class BookListComponent implements OnInit {
         this.books?.push(event);
         this.editing = false;
         this.adding = false;
+        console.log(this.books);
       });
     } else {
       this.bookListService.updateBook(event).subscribe((data: Book) => {
@@ -77,6 +79,7 @@ export class BookListComponent implements OnInit {
           }
           return book;
         });
+        console.log(this.books);
       });
     }
 
@@ -94,6 +97,7 @@ export class BookListComponent implements OnInit {
   deleteBook(bookId: number) {
     this.bookListService.deleteBook(bookId).subscribe( () => {
       this.books = this.books?.filter(book => book.id != bookId);
+      console.log(this.books);
     });
   }
 }

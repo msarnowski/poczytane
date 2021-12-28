@@ -11,13 +11,15 @@ import { FormsModule } from '@angular/forms';
 import { QuotesEditorComponent } from './quotes-editor/quotes-editor.component';
 
 import { BookListService } from './book-list.service';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     EditorComponent,
-    QuotesEditorComponent
+    QuotesEditorComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

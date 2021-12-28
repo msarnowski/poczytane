@@ -8,7 +8,7 @@
 
 <p>editing: {{ editing }}</p>
 
-<div class="book" *ngFor="let book of books;">
+<div class="book" *ngFor="let book of books | reverse">
   <p><span class="book__attr-desc">ID: </span>{{ book.id }}</p>
 
   <p><span class="book__attr-desc">tytuł: </span><span class="book__title">&bdquo;{{ book.title }}&rdquo;</span></p>
