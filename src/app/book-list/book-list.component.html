@@ -1,12 +1,18 @@
+<div class="search" *ngIf="!editing">
+  <form (submit)="handleSearch(searchBox.value)">
+    <input type="text" #searchBox><button type="submit">Search</button><button type="reset" (click)="loadBooks()">Reset</button>
+  </form>
+</div>
+
 <div class="new" *ngIf="!editing">
-  <button (click)="handleNew()">Add book</button> <!-- TO DO: next id -->
+  <button (click)="handleNew()">Add book</button>
 </div>
 
 <div class="editor" *ngIf="editing">
   <app-editor [bookToEdit]="bookToEdit" [adding]="adding" [nextId]="nextId" (save)="handleSave($event)" (cancel)="handleCancel()"></app-editor>
 </div>
 
-<p>editing: {{ editing }}</p>
+<div class="msg" *ngIf="results && books?.length === 0">Brak wyników</div>
 
 <div class="book" *ngFor="let book of books | reverse">
   <p><span class="book__attr-desc">ID: </span>{{ book.id }}</p>

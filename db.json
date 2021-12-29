@@ -74,6 +74,20 @@
       },
       "quotes": [],
       "note": null
+    },
+    {
+      "id": 10,
+      "date": 1640711088734,
+      "title": "aaa",
+      "author": {
+        "firstName": "qqq",
+        "lastName": "qqq"
+      },
+      "quotes": [
+        "abc",
+        "drugi"
+      ],
+      "note": "zzzzzzz"
     }
   ]
 }

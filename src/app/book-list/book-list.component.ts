@@ -24,6 +24,7 @@ interface Author {
 export class BookListComponent implements OnInit {
   editing: Boolean;
   adding: Boolean;
+  results: Boolean;
   bookToEdit?: Book;
   books?: Book[];
   nextId: number;
@@ -31,14 +32,12 @@ export class BookListComponent implements OnInit {
   constructor(private bookListService: BookListService) {
     this.editing = false;
     this.adding = false;
+    this.results = false;
     this.nextId = -1;
   }
 
   ngOnInit(): void {
-    this.bookListService.getBooks().subscribe((data: Book[]) => {
-      this.books = data;
-      console.log(this.books);
-    });
+    this.loadBooks();
   }
 
   handleNew() {
@@ -53,7 +52,7 @@ export class BookListComponent implements OnInit {
 
   handleEditing(id: number) {
     if (this.books) {
-      this.bookToEdit = this.books[id];
+      this.bookToEdit = this.books.find(book => book.id === id);
     }
     this.editing = true;
   }
@@ -69,7 +68,7 @@ export class BookListComponent implements OnInit {
         this.books?.push(event);
         this.editing = false;
         this.adding = false;
-        console.log(this.books);
+        // console.log(this.books);
       });
     } else {
       this.bookListService.updateBook(event).subscribe((data: Book) => {
@@ -79,7 +78,7 @@ export class BookListComponent implements OnInit {
           }
           return book;
         });
-        console.log(this.books);
+        // console.log(this.books);
       });
     }
 
@@ -89,7 +88,7 @@ export class BookListComponent implements OnInit {
 
   getReadableDate(date: number): string {
     const dateObject = new Date(date);
-    let dateString = dateObject.toLocaleString();
+    let dateString: string = dateObject.toLocaleString();
     dateString = dateString.substring(0, dateString.length - 3);
     return dateString;
   }
@@ -97,7 +96,42 @@ export class BookListComponent implements OnInit {
   deleteBook(bookId: number) {
     this.bookListService.deleteBook(bookId).subscribe( () => {
       this.books = this.books?.filter(book => book.id != bookId);
-      console.log(this.books);
+      // console.log(this.books);
+    });
+  }
+
+  handleSearch(query: string) {
+    // console.log(`searching for ${query}`);
+    
+    if (!this.results) {
+      this.books = this.books?.filter(book => {
+        return this.bookMatched(book, query);
+      });
+
+      this.results = true;
+
+      // console.log(this.books);
+    } else {
+      this.bookListService.getBooks().subscribe((data: Book[]) => {
+        this.books = data.filter(book => {
+          return this.bookMatched(book, query);
+        });
+      });
+    }
+  }
+
+  bookMatched(book: Book, query: string): Boolean {
+    if (book.title.toLowerCase().indexOf(query.toLowerCase()) !== -1) return true;
+    if (book.author.firstName.toLowerCase().indexOf(query.toLowerCase()) !== -1) return true;
+    if (book.author.lastName.toLowerCase().indexOf(query.toLowerCase()) !== -1) return true;
+    return false;
+  }
+
+  loadBooks() {
+    this.bookListService.getBooks().subscribe((data: Book[]) => {
+      this.books = data;
+      if (this.results) this.results = false;
+      // console.log(this.books);
     });
   }
 }
