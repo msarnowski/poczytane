@@ -1,3 +1,22 @@
 :host {
   display: block;
+  margin-bottom: .5em;
+}
+
+input, textarea {
+  margin-bottom: .5em;
+}
+
+.button--outlined {
+  padding: .25em .5em;
+}
+
+.quotes-editor__quote {
+  display: flex;
+  align-items: flex-start;
+}
+
+.quotes-editor__textarea {
+  width: auto;
+  flex-grow: 1;
 }

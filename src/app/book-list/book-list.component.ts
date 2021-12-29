@@ -132,6 +132,7 @@ export class BookListComponent implements OnInit {
       this.books = data;
       if (this.results) this.results = false;
       // console.log(this.books);
+      this.handleNew();
     });
   }
 }

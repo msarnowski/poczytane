@@ -1,0 +1,14 @@
+@import "../variables";
+
+.app-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+
+  background-color: $primary-color-dark;
+  color: $primary-color-text;
+
+  box-shadow: 0 0 .75em $divider-color;
+}

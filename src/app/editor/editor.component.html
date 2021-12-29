@@ -4,22 +4,31 @@
   <label>title</label>
   <input type="text" name="title" [ngModel]="bookToEdit?.title" #title="ngModel" required autofocus><br>
 
-  <p class="validation-msg" *ngIf="title.invalid && title.touched">Title required</p>
+  <p class="validation-msg"><span class="validation-msg__text" *ngIf="title.invalid && (title.touched || form.submitted)">Title required</span></p>
 
   <label>author</label>
-  <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" required placeholder="first name">
-  <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" required placeholder="last name"><br>
+  <div class="author">
+    <div class="author__first-name">
+      <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" required placeholder="first name">
 
-  <span class="validation-msg" *ngIf="firstName.invalid && firstName.touched">First name required </span><span class="validation-msg" *ngIf="lastName.invalid && lastName.touched">Last name required</span>
+      <p class="validation-msg"><span class="validation-msg__text" *ngIf="firstName.invalid && (firstName.touched || form.submitted)">First name required </span></p>
+    </div>
+
+    <div class="author__last-name">
+      <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" required placeholder="last name">
+
+      <p class="validation-msg"><span class="validation-msg__text" *ngIf="lastName.invalid && (lastName.touched || form.submitted)">Last name required</span></p>
+    </div>
+  </div>
 
   <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor>
 
   <label>note</label>
-  <input type="text" name="note" [ngModel]="bookToEdit?.note" #note><br>
+  <textarea name="note" [ngModel]="bookToEdit?.note" #note></textarea>
 
-  <p class="validation-msg" *ngIf="form.invalid && form.submitted">Fill in required fields</p>
+  <p class="validation-msg"><span class="validation-msg__text" *ngIf="form.invalid && form.submitted">Fill in required fields</span></p>
 
   <button type="submit">Submit</button>
 </form>
 
-<button (click)="handleCancel()">Cancel</button>
+<button class="button--outlined" (click)="handleCancel()">Cancel</button>

@@ -9,6 +9,6 @@ export class AppComponent {
   title: string;
 
   constructor() {
-    this.title = 'Poczytane';
+    this.title = 'poczytane';
   }
 }

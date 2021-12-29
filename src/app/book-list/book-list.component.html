@@ -1,6 +1,6 @@
 <div class="search" *ngIf="!editing">
-  <form (submit)="handleSearch(searchBox.value)">
-    <input type="text" #searchBox><button type="submit">Search</button><button type="reset" (click)="loadBooks()">Reset</button>
+  <form class="search__form" (submit)="handleSearch(searchBox.value)">
+    <input class="search__input" type="text" #searchBox><button type="submit">Search</button><button class="button--outlined" type="reset" (click)="loadBooks()">Reset</button>
   </form>
 </div>
 
@@ -15,19 +15,19 @@
 <div class="msg" *ngIf="results && books?.length === 0">Brak wyników</div>
 
 <div class="book" *ngFor="let book of books | reverse">
-  <p><span class="book__attr-desc">ID: </span>{{ book.id }}</p>
-
   <p><span class="book__attr-desc">tytuł: </span><span class="book__title">&bdquo;{{ book.title }}&rdquo;</span></p>
   
   <p><span class="book__attr-desc">autor:</span> {{ book.author.firstName }} {{ book.author.lastName }}</p>
-
-  <p><span class="book__attr-desc">data dodania:</span> {{ getReadableDate(book.date) }}</p>
 
   <p *ngFor="let quote of book.quotes"><span class="book__attr-desc">cytat:</span> &bdquo;{{ quote }}&rdquo;</p>
 
   <p *ngIf="book.note"><span class="book__attr-desc">notatka:</span> {{ book.note }}</p>
 
+  <p class="book__attr--secondary"><span class="book__attr-desc">data dodania:</span> {{ getReadableDate(book.date) }}</p>
+
+  <p class="book__attr--secondary"><span class="book__attr-desc">ID: </span>{{ book.id }}</p>
+
   <button *ngIf="!editing" class="book__edit-button" (click)="handleEditing(book.id)">Edit</button>
 
-  <button *ngIf="!editing" class="book__delete-button" (click)="deleteBook(book.id)">Delete</button>
+  <button *ngIf="!editing" class="button--outlined book__delete-button" (click)="deleteBook(book.id)">Delete</button>
 </div>

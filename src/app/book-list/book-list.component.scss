@@ -1,12 +1,25 @@
+@import "../../variables";
+
 :host {
-  min-width: 480px;
+  display: block;
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 3.75em;
+}
+
+.search__form {
+  display: flex;
+}
+
+.search__input {
+  width: auto;
+  flex-grow: 1;
 }
 
 .book{
   font-size: 1.125em;
+  margin-top: 1em;
   margin-bottom: 2em;
 }
 
@@ -15,5 +28,10 @@
 }
 
 .book__attr-desc {
-  color: #999;
+  color: $secondary-text-color;
+}
+
+.book__attr--secondary {
+  font-size: .75em;
+  color: $secondary-text-color;
 }
