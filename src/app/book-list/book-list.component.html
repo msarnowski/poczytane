@@ -1,6 +1,8 @@
 <div class="search" *ngIf="!editing">
   <form class="search__form" (submit)="handleSearch(searchBox.value)">
-    <input class="search__input" type="text" #searchBox><button type="submit">Search</button><button class="button--outlined" type="reset" (click)="loadBooks()">Reset</button>
+    <input class="search__input" type="text" #searchBox>
+    <button class="search__button" type="submit">Search</button>
+    <button class="search__button button--outlined" type="reset" (click)="loadBooks()">Reset</button>
   </form>
 </div>
 

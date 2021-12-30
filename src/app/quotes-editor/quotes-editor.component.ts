@@ -47,7 +47,7 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
 
     this.cDR.detectChanges();
 
-    let inputs = document.getElementsByClassName('quotes-editor__input');
+    let inputs = document.getElementsByClassName('quotes-editor__textarea');
     let lastInput = inputs[inputs.length - 1];
     (lastInput as HTMLElement)?.focus();
 

@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @import "variables";
 
 body {
@@ -41,7 +43,7 @@ input, textarea {
 }
 
 textarea {
-  vertical-align: top;
+  min-height: 3.5em;
   resize: vertical;
 }
 
@@ -50,15 +52,30 @@ button {
   margin: 0 .5em 1em 0;
   padding: .75em 1em;
 
+  box-sizing: border-box;
+
   border: none;
   border-radius: .25em;
   background-color: $accent-color;
   color: $primary-color-text;
+  transition: background-color .25s;
   cursor: pointer;
+}
+
+button:hover,
+button:active {
+  background-color: color.scale($accent-color, $lightness: -20%);
 }
 
 .button--outlined {
   background-color: transparent;
   border: 1px solid $primary-color-dark;
   color: $primary-text-color;
+  padding-top: calc(.75em - 1px);
+  padding-bottom: calc(.75em - 1px);
+}
+
+.button--outlined:hover,
+.button--outlined:active {
+  background-color: color.scale($accent-color, $lightness: +80%);
 }

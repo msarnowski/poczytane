@@ -1,23 +1,23 @@
-<p *ngIf="!adding">&bdquo;{{ bookToEdit?.title }}&rdquo;</p>
+<div class="editor__heading" *ngIf="!adding">edytujesz: &bdquo;{{ bookToEdit?.title }}&rdquo;</div>
 
 <form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
   <label>title</label>
-  <input type="text" name="title" [ngModel]="bookToEdit?.title" #title="ngModel" required autofocus><br>
+  <input type="text" name="title" [ngModel]="bookToEdit?.title" #title="ngModel" [class.input--invalid]="title.invalid && (title.touched || form.submitted)" required autofocus><br>
 
-  <p class="validation-msg"><span class="validation-msg__text" *ngIf="title.invalid && (title.touched || form.submitted)">Title required</span></p>
+  <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="title.invalid && (title.touched || form.submitted)">Title required</span></p>
 
   <label>author</label>
   <div class="author">
     <div class="author__first-name">
-      <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" required placeholder="first name">
+      <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" [class.input--invalid]="firstName.invalid && (firstName.touched || form.submitted)" required placeholder="first name">
 
-      <p class="validation-msg"><span class="validation-msg__text" *ngIf="firstName.invalid && (firstName.touched || form.submitted)">First name required </span></p>
+      <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="firstName.invalid && (firstName.touched || form.submitted)">First name required </span></p>
     </div>
 
     <div class="author__last-name">
-      <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" required placeholder="last name">
+      <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" [class.input--invalid]="lastName.invalid && (lastName.touched || form.submitted)" required placeholder="last name">
 
-      <p class="validation-msg"><span class="validation-msg__text" *ngIf="lastName.invalid && (lastName.touched || form.submitted)">Last name required</span></p>
+      <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="lastName.invalid && (lastName.touched || form.submitted)">Last name required</span></p>
     </div>
   </div>
 
@@ -26,7 +26,7 @@
   <label>note</label>
   <textarea name="note" [ngModel]="bookToEdit?.note" #note></textarea>
 
-  <p class="validation-msg"><span class="validation-msg__text" *ngIf="form.invalid && form.submitted">Fill in required fields</span></p>
+  <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="form.invalid && form.submitted">Fill in required fields</span></p>
 
   <button type="submit">Submit</button>
 </form>

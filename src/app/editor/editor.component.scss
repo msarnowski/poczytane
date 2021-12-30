@@ -7,7 +7,16 @@
   margin-bottom: 1em;
 }
 
-.validation-msg {
+.editor__heading {
+  text-align: center;
+}
+
+.input--invalid {
+  background-color: $light-red;
+  border-bottom-color: $red;
+}
+
+.editor__validation-msg {
   font-size: .875em;
   line-height: 1;
   height: 1em;
