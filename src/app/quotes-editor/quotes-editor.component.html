@@ -1,6 +1,6 @@
-<label>quotes</label>
+<label>Cytaty</label>
 <div class="quotes-editor__quote" *ngFor="let quote of quotesToEdit; let i = index; trackBy:trackByFn">
-  <textarea class="quotes-editor__textarea" (input)="updateQuote($event, i)" [value]="quote"></textarea><button class="button--outlined" (click)="removeQuote(i)" type="button">Remove quote</button>
+  <textarea class="quotes-editor__textarea" (input)="updateQuote($event, i)" [value]="quote"></textarea><button class="button--outlined" (click)="removeQuote(i)" type="button">Usuń cytat</button>
 </div>
 
-<button class="button--outlined" (click)="addQuote()" type="button">Add quote</button>
+<button class="button--outlined" (click)="addQuote()" type="button">Dodaj cytat</button>

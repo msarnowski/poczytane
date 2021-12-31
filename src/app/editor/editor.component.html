@@ -1,34 +1,34 @@
 <div class="editor__heading" *ngIf="!adding">edytujesz: &bdquo;{{ bookToEdit?.title }}&rdquo;</div>
 
 <form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
-  <label>title</label>
+  <label>Tytuł</label>
   <input type="text" name="title" [ngModel]="bookToEdit?.title" #title="ngModel" [class.input--invalid]="title.invalid && (title.touched || form.submitted)" required autofocus><br>
 
-  <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="title.invalid && (title.touched || form.submitted)">Title required</span></p>
+  <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="title.invalid && (title.touched || form.submitted)">tytuł jest wymagany</span></p>
 
-  <label>author</label>
+  <label>Autor</label>
   <div class="author">
     <div class="author__first-name">
       <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" [class.input--invalid]="firstName.invalid && (firstName.touched || form.submitted)" required placeholder="first name">
 
-      <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="firstName.invalid && (firstName.touched || form.submitted)">First name required </span></p>
+      <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="firstName.invalid && (firstName.touched || form.submitted)">imię jest wymagane</span></p>
     </div>
 
     <div class="author__last-name">
       <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" [class.input--invalid]="lastName.invalid && (lastName.touched || form.submitted)" required placeholder="last name">
 
-      <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="lastName.invalid && (lastName.touched || form.submitted)">Last name required</span></p>
+      <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="lastName.invalid && (lastName.touched || form.submitted)">nazwisko jest wymagane</span></p>
     </div>
   </div>
 
   <app-quotes-editor [quotesToEdit]="quotes" (update)="handleQuotesUpdate($event)"></app-quotes-editor>
 
-  <label>note</label>
+  <label>Notatka</label>
   <textarea name="note" [ngModel]="bookToEdit?.note" #note></textarea>
 
-  <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="form.invalid && form.submitted">Fill in required fields</span></p>
+  <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="form.invalid && form.submitted">Uzupełnij pola oznaczone na czerwono</span></p>
 
-  <button type="submit">Submit</button>
+  <button type="submit">Zapisz</button>
 </form>
 
-<button class="button--outlined" (click)="handleCancel()">Cancel</button>
+<button class="button--outlined" (click)="handleCancel()">Anuluj</button>
