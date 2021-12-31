@@ -93,10 +93,42 @@ export class BookListComponent implements OnInit {
     return dateString;
   }
 
+  handleDeleting(event: any) {
+    // console.log(button);
+    const button = event.target as HTMLElement;
+    // console.log(buttonElement);
+    const deletingBlock = button.nextElementSibling;
+    // console.log(deletingBlock);
+
+    button.style.display = 'none';
+
+    if (deletingBlock?.matches('.deleting')) {
+      // console.log('matches');
+      const deletingBlockHtmlEl = deletingBlock as HTMLElement;
+      deletingBlockHtmlEl.style.display = 'inline';
+    }
+  }
+
+  cancelDeleting(event: any) {
+    const button = event.target as HTMLElement;
+    const deletingBlock = button.parentElement;
+
+    if (deletingBlock?.matches('.deleting')) {
+      const deletingBlockHtmlEl = deletingBlock as HTMLElement;
+      deletingBlockHtmlEl.style.display = 'none';
+    }
+
+    const deleteButton = deletingBlock?.previousElementSibling;
+
+    if (deleteButton?.matches('.book__delete-button')) {
+      const deleteButtonHtmlEl = deleteButton as HTMLElement;
+      deleteButtonHtmlEl.style.display = 'inline-block';
+    }
+  }
+
   deleteBook(bookId: number) {
     this.bookListService.deleteBook(bookId).subscribe( () => {
       this.books = this.books?.filter(book => book.id != bookId);
-      // console.log(this.books);
     });
   }
 

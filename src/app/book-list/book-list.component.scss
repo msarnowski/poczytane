@@ -40,3 +40,17 @@
   font-size: .75em;
   color: $secondary-text-color;
 }
+
+.deleting {
+  display: none;
+}
+
+.deleting__notice {
+  font-size: .875em;
+  margin-left: .5em;
+}
+
+.deleting__notice, 
+.deleting__confirm-button {
+  margin-right: 1em;
+}

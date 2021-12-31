@@ -29,7 +29,14 @@
 
   <p class="book__attr--secondary"><span class="book__attr-desc">ID: </span>{{ book.id }}</p>
 
-  <button *ngIf="!editing" class="book__edit-button" (click)="handleEditing(book.id)">Edit</button>
+  <button *ngIf="!editing" class="book__edit-button" (click)="handleEditing(book.id)">Edytuj</button>
 
-  <button *ngIf="!editing" class="button--outlined book__delete-button" (click)="deleteBook(book.id)">Delete</button>
+  <button *ngIf="!editing" class="button--outlined book__delete-button" (click)="handleDeleting($event)">Usuń</button>
+
+  <div class="deleting">
+    <span class="deleting__notice">Czy na pewno usunąć?</span>
+
+    <button *ngIf="!editing" class="button--outlined deleting__cancel-button" (click)="cancelDeleting($event)">Anuluj</button>
+    
+    <button *ngIf="!editing" class="button--destructive deleting__confirm-button" (click)="deleteBook(book.id)">Usuń</button>
 </div>

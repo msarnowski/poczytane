@@ -67,15 +67,30 @@ button:active {
   background-color: color.scale($accent-color, $lightness: -20%);
 }
 
+.button--outlined,
+.button--destructive {
+  padding-top: calc(.75em - 1px);
+  padding-bottom: calc(.75em - 1px);
+}
+
 .button--outlined {
   background-color: transparent;
   border: 1px solid $primary-color-dark;
   color: $primary-text-color;
-  padding-top: calc(.75em - 1px);
-  padding-bottom: calc(.75em - 1px);
 }
 
 .button--outlined:hover,
 .button--outlined:active {
   background-color: color.scale($accent-color, $lightness: +80%);
+}
+
+.button--destructive {
+  background-color: color.scale($red, $lightness: +90%);
+  border: 1px solid $red;
+  color: $red;
+}
+
+.button--destructive:hover,
+.button--destructive:active {
+  background-color: color.scale($red, $lightness: +60%);
 }
