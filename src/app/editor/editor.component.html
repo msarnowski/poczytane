@@ -27,11 +27,11 @@
   <textarea name="note" [ngModel]="bookToEdit?.note" #note></textarea>
 
   <label>Data dodania</label>
-  <input name="date" type="datetime-local" [ngModel]="dateAddedString" (input)="handleDateChange($event)" #date>
+  <input name="date" type="datetime-local" [ngModel]="dateAddedString" #date>
 
   <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="form.invalid && form.submitted">Uzupełnij pola oznaczone na czerwono</span></p>
 
-  <button type="submit">Zapisz</button>
-</form>
+  <button type="submit" class="editor__submit-button">Zapisz</button>
 
-<button class="button--outlined" (click)="handleCancel()">Anuluj</button>
+  <button type="button" class="editor__cancel-button button--outlined" (click)="handleCancel()">Anuluj</button>
+</form>

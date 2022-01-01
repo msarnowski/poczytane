@@ -2,8 +2,11 @@
 
 :host {
   display: block;
-  border: 1px solid $divider-color;
+  // border: 1px solid $divider-color;
+
+  box-shadow: 0 0 .75em $divider-color;
   padding: 1em 1em .5em 1em;
+  margin-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -26,9 +29,18 @@
   color: $red;
 }
 
-button {
+.editor__submit-button,
+.editor__cancel-button {
   margin-top: .5em;
+}
+
+.editor__submit-button {
   min-width: 50%;
+}
+
+.editor__cancel-button {
+  min-width: 25%;
+  float: right;
 }
 
 .author {
@@ -51,8 +63,4 @@ button {
   .author__last-name {
     grid-column: 2 / 3;
   }
-}
-
-pre {
-  font-size: .75em;
 }

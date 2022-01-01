@@ -41,21 +41,14 @@ export class EditorComponent implements OnInit {
       this.bookToEdit = undefined;
 
       const currentDate = new Date();
-      // console.log(currentDate);
       const offset = currentDate.getTimezoneOffset();
       const currentMilliseconds = currentDate.getTime();
-      // console.log(offset);
       const currentDateAdjusted = new Date(currentMilliseconds - (offset * 60000));
-      // console.log(currentDateAdjusted);
-
-      // console.log(currentDateAdjusted.toISOString());
       this.dateAddedString = currentDateAdjusted.toISOString().substring(0, 16);
-      // console.log(this.dateAddedString);
     } else { // editing
       if (this.bookToEdit?.date) {
         const savedDate = new Date(this.bookToEdit.date);
         const offset = savedDate.getTimezoneOffset();
-        // console.log(`offset: ${offset}`);
         const savedDateAdjusted = new Date(this.bookToEdit.date - (offset * 60000));
 
         this.dateAddedString = savedDateAdjusted.toISOString().substring(0, 16);
@@ -66,26 +59,10 @@ export class EditorComponent implements OnInit {
       }
     }
     this.quotesString = JSON.stringify(this.quotes);
-    // console.log(`(book editor) quotes: ${this.quotes}`);
-  }
-
-  ngAfterViewInit(): void {
-    if (this.adding) {
-      // console.log(this.dateAdded);
-      // console.log(this.dateAdded?.toISOString().substring(0, 16));
-      // this.DateField.nativeElement.value = this.dateAdded?.toISOString().substring(0, 16);
-      
-      console.log(`date field value: ${this.DateField.nativeElement.value}`);
-    }
   }
 
   handleQuotesUpdate(event: string[]) {
     this.quotesEdited = event;
-    // console.log(`(book editor) quotesEdited updated: ${this.quotesEdited}`);
-  }
-
-  handleDateChange(event: any) {
-    console.log(event.target.value);
   }
 
   handleSubmit(form: any, valid: boolean | null) {
