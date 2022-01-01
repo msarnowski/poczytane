@@ -9,13 +9,13 @@
   <label>Autor</label>
   <div class="author">
     <div class="author__first-name">
-      <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" [class.input--invalid]="firstName.invalid && (firstName.touched || form.submitted)" required placeholder="first name">
+      <input type="text" name="firstName" [ngModel]="bookToEdit?.author?.firstName" #firstName="ngModel" [class.input--invalid]="firstName.invalid && (firstName.touched || form.submitted)" required placeholder="imię">
 
       <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="firstName.invalid && (firstName.touched || form.submitted)">imię jest wymagane</span></p>
     </div>
 
     <div class="author__last-name">
-      <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" [class.input--invalid]="lastName.invalid && (lastName.touched || form.submitted)" required placeholder="last name">
+      <input type="text" name="lastName" [ngModel]="bookToEdit?.author?.lastName" #lastName="ngModel" [class.input--invalid]="lastName.invalid && (lastName.touched || form.submitted)" required placeholder="nazwisko">
 
       <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="lastName.invalid && (lastName.touched || form.submitted)">nazwisko jest wymagane</span></p>
     </div>
@@ -25,6 +25,9 @@
 
   <label>Notatka</label>
   <textarea name="note" [ngModel]="bookToEdit?.note" #note></textarea>
+
+  <label>Data dodania</label>
+  <input name="date" type="datetime-local" [ngModel]="dateAddedString" (input)="handleDateChange($event)" #date>
 
   <p class="editor__validation-msg"><span class="validation-msg__text" *ngIf="form.invalid && form.submitted">Uzupełnij pola oznaczone na czerwono</span></p>
 
