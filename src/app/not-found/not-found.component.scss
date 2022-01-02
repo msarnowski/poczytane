@@ -1,0 +1,15 @@
+@use "sass:color";
+
+@import "../../variables";
+
+:host {
+  display: block;
+  font-size: 1.125em;
+  padding-top: 4em;
+  text-align: center;
+}
+
+.response {
+  font-size: 2em;
+  color: color.scale($red, $lightness: +60%);
+}

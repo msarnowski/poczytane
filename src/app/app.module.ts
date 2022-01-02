@@ -12,6 +12,7 @@ import { QuotesEditorComponent } from './quotes-editor/quotes-editor.component';
 
 import { BookListService } from './book-list.service';
 import { ReversePipe } from './reverse.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReversePipe } from './reverse.pipe';
     BookListComponent,
     EditorComponent,
     QuotesEditorComponent,
-    ReversePipe
+    ReversePipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

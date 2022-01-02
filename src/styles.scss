@@ -7,11 +7,11 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: $primary-text-color;
-}
 
-@media screen and (min-width: 520px) { 
-  body {
-    font-size: 1.125em;
+  @media screen and (min-width: 520px) { 
+    & {
+      font-size: 1.125em;
+    }
   }
 }
 
@@ -20,12 +20,24 @@ p {
   margin-bottom: .5em;
 }
 
+a {
+  color: $primary-color-dark;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}
+
 label {
   display: block;
   padding-left: .5em;
 }
 
-input, textarea {
+input, 
+textarea {
   font-size: 1rem;
   margin: 0 .5em 1.5em 0;
   padding: .5em;
@@ -60,17 +72,22 @@ button {
   color: $primary-color-text;
   transition: background-color .25s;
   cursor: pointer;
-}
 
-button:hover,
-button:active {
-  background-color: color.scale($accent-color, $lightness: -20%);
+  &:hover,
+  &:active {
+    background-color: color.scale($accent-color, $lightness: -20%);
+  }
 }
 
 .button--outlined,
 .button--destructive {
   padding-top: calc(.75em - 1px);
   padding-bottom: calc(.75em - 1px);
+
+  &:hover,
+  &:active {
+    background-color: color.scale($accent-color, $lightness: +80%);
+  }
 }
 
 .button--outlined {
@@ -79,18 +96,13 @@ button:active {
   color: $primary-text-color;
 }
 
-.button--outlined:hover,
-.button--outlined:active {
-  background-color: color.scale($accent-color, $lightness: +80%);
-}
-
 .button--destructive {
   background-color: color.scale($red, $lightness: +90%);
   border: 1px solid $red;
   color: $red;
-}
 
-.button--destructive:hover,
-.button--destructive:active {
-  background-color: color.scale($red, $lightness: +60%);
+  &:hover,
+  &:active {
+    background-color: color.scale($red, $lightness: +60%);
+  }
 }
