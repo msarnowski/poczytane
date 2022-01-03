@@ -15,9 +15,7 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
 
   constructor(private cDR: ChangeDetectorRef) {}
 
-  ngOnInit(): void { 
-    // console.log(`(quotes editor) quotes: ${this.quotesToEdit}`); 
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     if (this.quotesToEdit) {
@@ -28,11 +26,6 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
   ngOnChanges(changes: any): void {
     if (this.quotesToEdit) {
       this.quotesToEdit = Array.from(changes.quotesToEdit.currentValue);
-      
-      // console.log(`ngOnChanges this.quotesToEdit ${this.quotesToEdit}`);
-      // console.log(Array.from(changes.quotesToEdit.currentValue));
-      
-      // console.log('ngOnchanges');
     }
   }
 
@@ -55,16 +48,10 @@ export class QuotesEditorComponent implements OnInit, OnChanges {
   }
 
   updateQuote(event: any, i: number) {
-    // console.log(`quote ${i}: ${event.target.value}`);
-    // console.log(`index: ${index}`);
-    // console.log(`quotesEdited: ${this.quotesEdited}`);
-    
     if (this.quotesToEdit) {
       this.quotesToEdit[i] = event.target.value;
       this.update.emit(this.quotesToEdit);
     }
-
-    // console.log(`quotesToEdit: ${this.quotesToEdit}`);
   }
 
   removeQuote(index: number) {

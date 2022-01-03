@@ -22,10 +22,7 @@
         "firstName": "Zbigniew",
         "lastName": "Rokita"
       },
-      "quotes": [
-        "a",
-        "e"
-      ],
+      "quotes": [],
       "note": "ech ech ech"
     },
     {
@@ -43,28 +40,6 @@
       "note": "eue eue eue"
     },
     {
-      "id": 6,
-      "date": 1640695806362,
-      "title": "a",
-      "author": {
-        "firstName": "a",
-        "lastName": "a"
-      },
-      "quotes": [],
-      "note": null
-    },
-    {
-      "id": 7,
-      "date": 1640696048507,
-      "title": "q",
-      "author": {
-        "firstName": "q",
-        "lastName": "q"
-      },
-      "quotes": [],
-      "note": null
-    },
-    {
       "id": 10,
       "date": 1640711088734,
       "title": "aaa",
@@ -77,19 +52,6 @@
         "drugi"
       ],
       "note": "zzzzzzz"
-    },
-    {
-      "id": 11,
-      "date": 1640773183657,
-      "title": "aa",
-      "author": {
-        "firstName": "aa",
-        "lastName": "aa"
-      },
-      "quotes": [
-        "aaaaazzzzz"
-      ],
-      "note": "bla bla bla"
     },
     {
       "id": 12,
@@ -111,50 +73,6 @@
       "author": {
         "firstName": "Mariane",
         "lastName": "Leky"
-      },
-      "quotes": [],
-      "note": null
-    },
-    {
-      "id": 14,
-      "date": 1640356320000,
-      "title": "rr",
-      "author": {
-        "firstName": "rr",
-        "lastName": "rr"
-      },
-      "quotes": [],
-      "note": null
-    },
-    {
-      "id": 15,
-      "date": 1640957580000,
-      "title": "ww",
-      "author": {
-        "firstName": "ww",
-        "lastName": "ww"
-      },
-      "quotes": [],
-      "note": null
-    },
-    {
-      "id": 16,
-      "date": 1640937600000,
-      "title": "cc",
-      "author": {
-        "firstName": "c",
-        "lastName": "c"
-      },
-      "quotes": [],
-      "note": null
-    },
-    {
-      "id": 17,
-      "date": 1641045600000,
-      "title": "tt",
-      "author": {
-        "firstName": "t",
-        "lastName": "t"
       },
       "quotes": [],
       "note": null
