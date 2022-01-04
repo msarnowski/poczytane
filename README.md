@@ -15,4 +15,4 @@ A database of books that you've read.
 
 Use `json-server --watch db.json` to run API.
 
-^This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.^
+<small>This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.</small>

@@ -55,6 +55,7 @@ export class BookListComponent implements OnInit {
       this.bookToEdit = this.books.find(book => book.id === id);
     }
     this.editing = true;
+    document.documentElement.scrollTop = 0;
   }
 
   handleCancel() {
@@ -68,7 +69,6 @@ export class BookListComponent implements OnInit {
         this.books?.push(event);
         this.editing = false;
         this.adding = false;
-        // console.log(this.books);
       });
     } else {
       this.bookListService.updateBook(event).subscribe((data: Book) => {
@@ -78,7 +78,6 @@ export class BookListComponent implements OnInit {
           }
           return book;
         });
-        // console.log(this.books);
       });
     }
 
@@ -94,16 +93,12 @@ export class BookListComponent implements OnInit {
   }
 
   handleDeleting(event: any) {
-    // console.log(button);
     const button = event.target as HTMLElement;
-    // console.log(buttonElement);
     const deletingBlock = button.nextElementSibling;
-    // console.log(deletingBlock);
 
     button.style.display = 'none';
 
     if (deletingBlock?.matches('.deleting')) {
-      // console.log('matches');
       const deletingBlockHtmlEl = deletingBlock as HTMLElement;
       deletingBlockHtmlEl.style.display = 'inline';
     }
@@ -133,16 +128,12 @@ export class BookListComponent implements OnInit {
   }
 
   handleSearch(query: string) {
-    // console.log(`searching for ${query}`);
-    
     if (!this.results) {
       this.books = this.books?.filter(book => {
         return this.bookMatched(book, query);
       });
 
       this.results = true;
-
-      // console.log(this.books);
     } else {
       this.bookListService.getBooks().subscribe((data: Book[]) => {
         this.books = data.filter(book => {
@@ -163,7 +154,6 @@ export class BookListComponent implements OnInit {
     this.bookListService.getBooks().subscribe((data: Book[]) => {
       this.books = data;
       if (this.results) this.results = false;
-      // console.log(this.books);
 
       // this.handleNew(); // for form layout testing
     });

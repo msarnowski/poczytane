@@ -2,80 +2,96 @@
   "books": [
     {
       "id": 0,
-      "date": 1633796640000,
+      "date": 1628526240000,
       "title": "Oskarżona Wiera Gran",
       "author": {
         "firstName": "Agata",
         "lastName": "Tuszyńska"
       },
       "quotes": [
-        "hue hue hue",
-        "buch buch buch"
+        "Pamiętam obraz dyndającej lampy, w przeciągu otwartych nagle okien po jej śmierci. Papieska moneta? Nikogo nie opłacisz. Zajrzałam do wnętrza w poszukiwaniu kamer. Nie było."
       ],
-      "note": "ble ble ble"
+      "note": "Płyta Wiery Gran \"The best of Syrena\""
     },
     {
       "id": 1,
-      "date": 1633883040000,
+      "date": 1636997040000,
       "title": "Kajś",
       "author": {
         "firstName": "Zbigniew",
         "lastName": "Rokita"
       },
-      "quotes": [],
-      "note": "ech ech ech"
+      "quotes": [
+        "Moi przodkowie użyźniali sobą dzieje. Dzieje się na nich pasły i rosły tłuste i obłe.",
+        "Ślązacy tkwią w jednym miejscu od tysiąca lat, zmieniają się tylko kraje, w których przychodzi im tkwić."
+      ],
+      "note": ""
     },
     {
       "id": 2,
-      "date": 1633969440000,
+      "date": 1623860640000,
       "title": "Fantom bólu",
       "author": {
         "firstName": "Hanna",
         "lastName": "Krall"
       },
       "quotes": [
-        "wii wii wii",
-        "aaa"
+        "Wóz toczył się bardzo powoli. O koniu, który jedzie noga za nogą, mówi się, że jedzie stępa, ale w getcie nie używano takich słów. Zatem koń jechał noga za nogą. ",
+        "Biednych leczono psim łojem i roztworem chlorku. Bogatych - klimatem, złotem podawanym dożylnie i alkoholem. "
       ],
-      "note": "eue eue eue"
-    },
-    {
-      "id": 10,
-      "date": 1640711088734,
-      "title": "aaa",
-      "author": {
-        "firstName": "qqq",
-        "lastName": "qqq"
-      },
-      "quotes": [
-        "abc",
-        "drugi"
-      ],
-      "note": "zzzzzzz"
-    },
-    {
-      "id": 12,
-      "date": 1640786700478,
-      "title": "eee",
-      "author": {
-        "firstName": "ee",
-        "lastName": "eeee"
-      },
-      "quotes": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit bibendum dui sed posuere. Morbi vel semper purus, eu dapibus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean fermentum non elit sit amet tempor. Vestibulum et pharetra sapien."
-      ],
-      "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit bibendum dui sed posuere. Morbi vel semper purus, eu dapibus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean fermentum non elit sit amet tempor. Vestibulum et pharetra sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit bibendum dui sed posuere. Morbi vel semper purus, eu dapibus tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean fermentum non elit sit amet tempor. Vestibulum et pharetra sapien."
+      "note": "Reportaże zebrane o tematyce żydowskiej. "
     },
     {
       "id": 13,
-      "date": 1640863298919,
+      "date": 1639999260000,
       "title": "Sen o okapi",
       "author": {
         "firstName": "Mariane",
         "lastName": "Leky"
       },
-      "quotes": [],
-      "note": null
+      "quotes": [
+        "Kiedy człowiek przez dłuższy czas patrzy na coś dobrze oświetlonego, a potem zamknie oczy, przed oczyma duszy staje mu wówczas ten sam obraz jako nieruchomy powidok."
+      ],
+      "note": "Książka z serii optymistycznych, dobrze skonstruowani bohaterowie, wielowątkowa. "
+    },
+    {
+      "id": 14,
+      "date": 1634154840000,
+      "title": "Kości, które nosisz w kieszeni",
+      "author": {
+        "firstName": "Łukasz",
+        "lastName": "Barys"
+      },
+      "quotes": [
+        "Ziemia nie obnosi się cierpieniem, ale chowa w sobie kości, na które można nadepnąć, chodząc po podwórku."
+      ],
+      "note": "Autor pochodzi z Pabianic, tam też dzieje się akcja książki. Książka nominowana do Paszportów Polityki 2021."
+    },
+    {
+      "id": 15,
+      "date": 1629316620000,
+      "title": "Rosnąc w siłę",
+      "author": {
+        "firstName": "Brene",
+        "lastName": "Brown"
+      },
+      "quotes": [
+        "Dwa najczęściej spotykane komunikaty wyzwalające w nas wstyd brzmią: \"nie jesteś wystarczająco dobry\" i \"za dużo sobie wyobrażasz\"."
+      ],
+      "note": "Do obejrzenia wystąpienie autorki na TEDx."
+    },
+    {
+      "id": 16,
+      "date": 1618343940000,
+      "title": "Piękny styl",
+      "author": {
+        "firstName": "Steven",
+        "lastName": "Pinker"
+      },
+      "quotes": [
+        "Brniemy. Przez instrukcje obsługi pisane z trzecim stopniem inwalidztwa."
+      ],
+      "note": "Zaznaczona strona 73 - najważniejsze informacje."
     }
   ]
 }
